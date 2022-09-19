@@ -17,6 +17,6 @@ export class AuthService {
   login(userData: UserLoginPayload): Observable<string> {
     // const {User,Clave} = userData
     console.log('payload enviado', userData);
-    return this.httpClient.post<any>(`${this._apiUrl}/login`, userData)
+    return this.httpClient.post<any>(`${this._apiUrl}/Login`, userData)
   }
 }
