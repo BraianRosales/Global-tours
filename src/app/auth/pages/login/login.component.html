@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="form-container">
+    <form [formGroup]="appForm" (ngSubmit)="login()">
+        <div class="icons-container">
+            <mat-icon class="img-icon" matSuffix>account_circle</mat-icon>
+            <h1 class="login-title">Iniciar sesión</h1>
+        </div>
+
+        <mat-form-field id="form-field-1" appearance="fill">
+            <mat-label>Usuario</mat-label>
+            <input matInput placeholder="Usuario" type="text" formControlName="user">
+            <mat-icon matSuffix>
+                clear
+            </mat-icon>
+            <mat-error>Usuario requerido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input matInput placeholder="Contraseña" formControlName="password">
+            <mat-icon matSuffix>
+                visibility_off
+            </mat-icon>
+            <mat-error>Contraseña requerida</mat-error>
+        </mat-form-field>
+
+        <button matButton [ngClass]="{btnInvalid: appForm.invalid}" [disabled]="appForm.invalid" type="submit"
+            mat-button>
+            Ingresar
+        </button>
+    </form>
+</div>
