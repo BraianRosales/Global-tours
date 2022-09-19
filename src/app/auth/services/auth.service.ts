@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment.prod';
+
 import { UserLoginPayload } from '../interfaces';
 
 
@@ -9,13 +10,13 @@ import { UserLoginPayload } from '../interfaces';
   providedIn: 'root'
 })
 export class AuthService {
-  private _apUrl: string = environment.apiUrl
+  private _apiUrl: string = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) { }
 
   login(userData: UserLoginPayload): Observable<string> {
     // const {User,Clave} = userData
     console.log('payload enviado', userData);
-    return this.httpClient.post<any>(`${this._apUrl}/login`, userData)
+    return this.httpClient.post<any>(`${this._apiUrl}/login`, userData)
   }
 }
