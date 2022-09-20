@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
+import { catchError, map, tap } from 'rxjs/operators'
 
 import { UserLoginPayload } from '../interfaces';
+import { apiResponseAuth } from '../interfaces/index';
 
 
 @Injectable({
@@ -14,9 +16,14 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(userData: UserLoginPayload): Observable<string> {
-    // const {User,Clave} = userData
-    console.log('payload enviado', userData);
-    return this.httpClient.post<any>(`${this._apiUrl}/Login`, userData)
+  login(userData: UserLoginPayload) {
+    return this.httpClient.post<any>(`${this._apiUrl}/Login`, userData).pipe(
+      tap((res: apiResponseAuth) => {
+        if (res.tokenJWT) {
+          map((res: apiResponseAuth) => res.tokenJWT)
+        }
+      }),
+      catchError(err => of(err))
+    )
   }
 }
