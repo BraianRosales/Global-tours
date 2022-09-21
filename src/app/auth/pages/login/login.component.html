@@ -28,10 +28,14 @@
                 <mat-error>Contraseña requerida</mat-error>
             </mat-form-field>
 
+
             <button matButton [ngClass]="{btnInvalid: appForm.invalid}" [disabled]="appForm.invalid" type="submit"
                 mat-button>
                 Ingresar
             </button>
+
+            <div class="createTitle"><p>¿no tiene cuenta?<a [routerLink]="['/auth/registro']">Crear cuenta.</a></p></div>
+            
         </ng-template>
     </form>
 </div>
