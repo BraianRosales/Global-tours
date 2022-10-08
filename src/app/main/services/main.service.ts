@@ -8,7 +8,6 @@ import { Place } from '../interfaces';
   providedIn: 'root'
 })
 export class MainService {
-
   private _apiUrl:string = environment.apiUrl;
 
   constructor(private httpCLient: HttpClient) { }

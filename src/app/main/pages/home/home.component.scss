@@ -1,0 +1,28 @@
+h1{
+    padding-top: 3rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.places{
+    width: 90%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 35px;
+    min-height: 100vh;
+}
+
+.place{
+    width: 29%;
+}
+
+.header{
+    margin: 0px auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

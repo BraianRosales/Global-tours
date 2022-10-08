@@ -10,32 +10,28 @@
         </div>
 
         <ng-template #send>
-            <mat-form-field id="form-field-1" appearance="fill">
+            <mat-form-field class="form-field" appearance="fill">
                 <mat-label>Usuario</mat-label>
                 <input matInput placeholder="Usuario" type="text" formControlName="user">
-                <mat-icon matSuffix>
+                <mat-icon class="iconClick" matSuffix (click)="cleanIncon()">
                     clear
                 </mat-icon>
                 <mat-error>Usuario requerido</mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field class="form-field" appearance="fill">
                 <mat-label>Contraseña</mat-label>
-                <input matInput placeholder="Contraseña" formControlName="password">
-                <mat-icon matSuffix>
-                    visibility_off
-                </mat-icon>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Contraseña" formControlName="password">
+                <mat-icon class="iconClick" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error>Contraseña requerida</mat-error>
             </mat-form-field>
 
-
-            <button matButton [ngClass]="{btnInvalid: appForm.invalid}" [disabled]="appForm.invalid" type="submit"
-                mat-button>
+            <button [ngClass]="{btnInvalid: appForm.invalid}" [disabled]="appForm.invalid" type="submit" mat-button>
                 Ingresar
             </button>
-
-            <div class="createTitle"><p>¿no tiene cuenta?<a [routerLink]="['/auth/registro']">Crear cuenta.</a></p></div>
-            
+            <div class="createTitle">
+                <p>¿no tiene cuenta?<a [routerLink]="['/auth/registro']">Crear cuenta.</a></p>
+            </div>
         </ng-template>
     </form>
 </div>

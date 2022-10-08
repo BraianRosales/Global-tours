@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { UserLoginPayload, apiResponseAuth } from '../../interfaces/index';
+import { UserPayload, apiResponseLogin } from '../../interfaces/auth';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
+  /**Flag que se utiliza para visualizar el icono del input password y para cambiar el type del input. */
+  hide = true;
+
   ngOnInit(): void {
     this.appForm = this.fb.group({
       user: ['', [Validators.required]],
@@ -27,23 +30,33 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  /**Metodo que se ejecuta al darle click al boton ingresar. */
   login() {
-    const userData: UserLoginPayload = {
+    const userData: UserPayload = {
       user: this.appForm.get('user')?.value,
       clave: this.appForm.get('password')?.value
     }
     this.btnLoading = true;
     setTimeout(() => {
-      this.authService.login(userData).subscribe((apiResponse: apiResponseAuth) => {
+      this.authService.login(userData).subscribe((apiResponse: apiResponseLogin) => {
         if (apiResponse.tokenJWT) {
-          localStorage.setItem('token', apiResponse.tokenJWT);
+          sessionStorage.setItem('token', apiResponse.tokenJWT);
           this.router.navigateByUrl('/main');
           return;
         }
         this.error = apiResponse.error;
-        Swal.fire(`${this.error}`);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `${this.error}`,
+        })
+        this.btnLoading = false;
       });
-      this.btnLoading = false;
-    }, 1500);
+    }, 1000);
+  }
+
+  /**Metodo que se ejecuta al darle al icono X. */
+  cleanIncon(){
+    this.appForm.get('user')?.setValue('');
   }
 }

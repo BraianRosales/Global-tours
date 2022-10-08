@@ -1,1 +1,48 @@
-<p>register works!</p>
+<div class="form-container">
+    <form [formGroup]="appForm" (ngSubmit)="register()">
+        <div class="icons-container">
+            <mat-icon class="img-icon" matSuffix>account_circle</mat-icon>
+            <h1 class="login-title">Registrarse</h1>
+        </div>
+
+        <div class="spinner" *ngIf="btnLoading;else send">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <ng-template #send>
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input matInput placeholder="Usuario" type="text" formControlName="user">
+                <mat-icon class="iconClick" matSuffix (click)="cleanIncon()">
+                    clear
+                </mat-icon>
+                <mat-error>Usuario requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Contraseña" formControlName="password">
+                <mat-icon class="iconClick" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+                </mat-icon>
+                <mat-error>Contraseña requerida</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Confirmar contraseña</mat-label>
+                <input matInput [type]="hideConfirm ? 'password' : 'text'" placeholder="Confirmar contraseña"
+                    formControlName="confirmPassword">
+                <mat-icon class="iconClick" matSuffix (click)="hideConfirm = !hideConfirm">{{hideConfirm ?
+                    'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error>Confirmación requerida</mat-error>
+            </mat-form-field>
+
+            <button matButton [ngClass]="{btnInvalid: appForm.invalid}" [disabled]="appForm.invalid" type="submit"
+                mat-button>
+                Registrar
+            </button>
+            <div class="createTitle">
+                <p>¿Ya tiene cuenta?<a [routerLink]="['/auth/login']">Volver al login</a></p>
+            </div>
+        </ng-template>
+    </form>
+</div>
