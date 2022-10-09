@@ -16,7 +16,7 @@
                 <mat-icon class="iconClick" matSuffix (click)="cleanIncon()">
                     clear
                 </mat-icon>
-                <mat-error>Usuario requerido</mat-error>
+                <mat-error>Usuario invalido o vacío</mat-error>
             </mat-form-field>
 
             <mat-form-field class="form-field" appearance="fill">
@@ -24,7 +24,7 @@
                 <input matInput [type]="hide ? 'password' : 'text'" placeholder="Contraseña" formControlName="password">
                 <mat-icon class="iconClick" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
                 </mat-icon>
-                <mat-error>Contraseña requerida</mat-error>
+                <mat-error>Se requiere contraseña sin espacios</mat-error>
             </mat-form-field>
 
             <mat-form-field class="form-field" appearance="fill">
@@ -33,11 +33,10 @@
                     formControlName="confirmPassword">
                 <mat-icon class="iconClick" matSuffix (click)="hideConfirm = !hideConfirm">{{hideConfirm ?
                     'visibility_off' : 'visibility'}}</mat-icon>
-                <mat-error>Confirmación requerida</mat-error>
+                <mat-error>Se requiere contraseña sin espacios</mat-error>
             </mat-form-field>
-
-            <button matButton [ngClass]="{btnInvalid: appForm.invalid}" [disabled]="appForm.invalid" type="submit"
-                mat-button>
+            <mat-error class="errorEquals" *ngIf="differentPasswords()">Contraseñas diferentes</mat-error>
+            <button [ngClass]="{btnInvalid: appForm.invalid}" [disabled]="appForm.invalid" type="submit" mat-button>
                 Registrar
             </button>
             <div class="createTitle">

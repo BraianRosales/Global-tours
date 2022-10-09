@@ -15,10 +15,14 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   appForm!: FormGroup;
+  /**Flag que determina la carga del spinner. */
   btnLoading: boolean = false;
-  error: unknown = '';
-
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+  
+  constructor(
+    private fb: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router
+  ) {}
 
   /**Flag que se utiliza para visualizar el icono del input password y para cambiar el type del input. */
   hide = true;
@@ -44,11 +48,10 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('/main');
           return;
         }
-        this.error = apiResponse.error;
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: `${this.error}`,
+          text: `${apiResponse.error}`,
         })
         this.btnLoading = false;
       });
