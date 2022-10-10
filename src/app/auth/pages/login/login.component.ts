@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
   appForm!: FormGroup;
   /**Flag que determina la carga del spinner. */
-  btnLoading: boolean = false;
+  loading: boolean = false;
   
   constructor(
     private fb: FormBuilder, 
@@ -36,15 +36,17 @@ export class LoginComponent implements OnInit {
 
   /**Metodo que se ejecuta al darle click al boton ingresar. */
   login() {
+    const userName: string = this.appForm.get('user')?.value;
     const userData: UserPayload = {
       user: this.appForm.get('user')?.value,
       clave: this.appForm.get('password')?.value
     }
-    this.btnLoading = true;
+    this.loading = true;
     setTimeout(() => {
       this.authService.login(userData).subscribe((apiResponse: apiResponseLogin) => {
         if (apiResponse.tokenJWT) {
           sessionStorage.setItem('token', apiResponse.tokenJWT);
+          this.authService.userNameLogin(userName.trim())
           this.router.navigateByUrl('/main');
           return;
         }
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
           title: 'Oops...',
           text: `${apiResponse.error}`,
         })
-        this.btnLoading = false;
+        this.loading = false;
       });
     }, 1000);
   }

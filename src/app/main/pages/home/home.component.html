@@ -1,10 +1,3 @@
-<div class="header">
-    <h1>Lugares del mundo</h1>
-    <div>
-        <button mat-raised-button  (click)="close()" color="accent">Cerrar sesión</button>
-    </div>
-</div>
-
 <div class="places">
     <mat-card *ngFor="let place of places" class="place example-card">
         <mat-card-header>
@@ -12,7 +5,7 @@
             <mat-card-title>{{place.nombre}}</mat-card-title>
             <mat-card-subtitle>{{place.pais}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src={{place.imagenUrl}} alt="Photo of a Shiba Inu">
+        <img mat-card-image src={{place.imagenUrl}} alt="place-img">
         <mat-card-content>
             <p>
                 {{place.descripcion}}

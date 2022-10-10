@@ -5,7 +5,7 @@ h1{
 }
 
 .places{
-    width: 90%;
+    width: 75%;
     margin: 0px auto;
     display: flex;
     justify-content: start;
@@ -13,10 +13,11 @@ h1{
     flex-direction: row;
     gap: 35px;
     min-height: 100vh;
+    padding-top: 80px;
 }
 
 .place{
-    width: 29%;
+    width: 20%;
 }
 
 .header{

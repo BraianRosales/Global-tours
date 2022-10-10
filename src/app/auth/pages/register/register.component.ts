@@ -14,7 +14,7 @@ import { ValidatorsService } from '../../services/validators.service';
 export class RegisterComponent implements OnInit {
   appForm!: FormGroup;
   /**Flag que determina la carga del spinner. */
-  btnLoading: boolean = false;
+  loading: boolean = false;
   /**Flag que se utiliza para visualizar el icono del input password y para cambiar el type del input. */
   hide = true;
   /**Flag que se utiliza para visualizar el icono del input confirmPassword y para cambiar el type del input. */
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
       user: userName.trim(),
       clave: userClave.trim(),
     }
-    this.btnLoading = true;
+    this.loading = true;
     setTimeout(() => {
       this.authService.userRegister(checkInData).subscribe((apiResponse: apiResponseRegister) => {
         if (apiResponse.id) {
@@ -69,7 +69,7 @@ export class RegisterComponent implements OnInit {
             text: `${apiResponse.error}`,
           })
         }
-        this.btnLoading = false;
+        this.loading = false;
       })
     }, 1000);
   }
