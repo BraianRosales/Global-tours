@@ -1,10 +1,4 @@
-h1{
-    padding-top: 3rem;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.places{
+.places {
     width: 75%;
     margin: 0px auto;
     display: flex;
@@ -13,17 +7,46 @@ h1{
     flex-direction: row;
     gap: 35px;
     min-height: 100vh;
-    padding-top: 80px;
-}
 
-.place{
-    width: 20%;
-}
+    .searchAndTitle {
+        height: 150px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-.header{
-    margin: 0px auto;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+        h1 {
+            margin-top: 25px;
+            font-size: 32px;
+        }
+
+        .input-container {
+            width: 25%;
+            height: 13%;
+            position: relative;
+
+            input {
+                width: 85%;
+                border-radius: 20px;
+                padding: 12px;
+                border: 1px solid gainsboro;
+            }
+    
+            input:focus-visible {
+                outline: none;
+            }
+
+            .search-icon {
+                position: absolute;
+                right: 35px;
+                top: 7px;
+                font-size: 28px;
+                color: #d16239;
+            }
+        }
+    }
+
+    .place {
+        width: 20%;
+    }
 }

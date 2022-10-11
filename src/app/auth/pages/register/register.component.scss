@@ -1,4 +1,4 @@
-$color-blue: rgb(117 146 233);
+$color-primary: #d16239;
 
 mat-icon {
     font-size: 25px !important;
@@ -35,7 +35,7 @@ mat-icon {
         .img-icon {
             font-size: 150px !important;
             margin-bottom: 130px;
-            color: $color-blue;
+            color: $color-primary;
         }
 
         .login-title {
@@ -52,7 +52,7 @@ mat-icon {
         button {
             display: block;
             margin: 0px auto;
-            background: $color-blue;
+            background: $color-primary;
             color: white;
             font-size: 18px;
             margin-top: 5px;
@@ -72,12 +72,12 @@ mat-icon {
 }
 
 ::ng-deep .swal2-styled.swal2-confirm {
-    background-color: $color-blue !important;
+    background-color: $color-primary !important;
 }
 
 ::ng-deep .mat-progress-spinner circle,
 .mat-spinner circle {
-    stroke: $color-blue;
+    stroke: $color-primary;
 }
 
 .spinner {
@@ -96,7 +96,7 @@ mat-icon {
 a {
     margin-left: 3px;
     margin-top: 5px;
-    color: royalblue;
+    color: $color-primary;
     text-decoration: none;
     cursor: pointer;
 }
@@ -121,7 +121,7 @@ a:hover {
 
 .iconClick:hover {
     cursor: pointer;
-    color: $color-blue;
+    color: $color-primary;
 }
 
 .errorEquals {

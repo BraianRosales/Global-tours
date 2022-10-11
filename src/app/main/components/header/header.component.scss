@@ -1,6 +1,6 @@
 .header {
-    background: #487bb1;
-    height: 170px;
+    background: #d16239;
+    height: 150px;
     color: white;
     display: flex;
     flex-direction: row;
@@ -8,6 +8,59 @@
 
 .container-left {
     width: 70%;
+    display: flex;
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 39%;
+        font-size: 40px;
+    }
+
+    .nav {
+        margin-top: 48px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-size: 16px;
+
+        .material-icons {
+            margin-left: 25px;
+            margin-right: 5px;
+        }
+
+        // .text {
+        //     background-image: 
+        //         linear-gradient(
+        //             transparent 0%,
+        //             transparent 87%,
+        //             black 90%,
+        //             black 100%
+                    
+        //         );
+
+        //         padding-bottom: 1px;
+        //         background-repeat: no-repeat;
+        //         background-size: 0% 100%;
+        //         background-position-x: right;
+
+        //         transition: background-size 300ms;
+        // }
+
+        // .text:hover {
+        //     cursor: pointer;
+        //     background-size: 100% 100%;
+        //     background-position-x: left;
+        // }
+
+        .text:hover {
+            cursor: pointer;
+            color: gold;
+            font-weight: 400;
+        }
+    }
 }
 
 .container-right {
@@ -28,8 +81,10 @@
 
         .material-icons {
             font-size: 35px;
+            margin-left: 5px;
+            margin-right: 5px;
         }
-    
+
         .icon-left {
             display: flex;
             margin-left: 30px;
@@ -46,8 +101,9 @@
 
             .closeIcon:hover {
                 cursor: pointer;
-                color: red;
+                color: #d16239;
             }
+
             .SignOff {
                 margin-top: 10px;
             }
@@ -58,30 +114,18 @@
         height: 68%;
 
         .container-bottom {
-            width: 70%;
+            width: 50%;
             height: 100%;
             margin: 0px auto;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
 
-            input {
-                width: 80%;
-                height: 15%;
-                border-radius: 20px;
-                border: none;
-                padding: 12px;
-            }
-
-            input:focus-visible {
-                outline: none;
-            }
-
-            .cartIcon {
-                font-size: 40px;
+            .planeIcon {
+                font-size: 50px;
+                margin-left: 5px;
+                margin-bottom: 5px;
             }
         }
     }
 }
-
-
