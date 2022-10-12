@@ -5,13 +5,32 @@
             <input type="text" placeholder="Buscar lugar..."><span class="search-icon material-icons">search</span>
         </div>
     </div>
-    <mat-card *ngFor="let place of places" class="place example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
+    <mat-card *ngFor="let place of places">
+        <!-- FRONT -->
+        <mat-card-title>{{place.nombre}}</mat-card-title>
+        <mat-card-subtitle>{{place.pais}}</mat-card-subtitle>
+        <div class="face front">
+            <img mat-card-image src={{place.imagenUrl}} alt="Photo of place" />
+        </div>
+        <!-- BACK -->
+        <div class="face back">
+            <!-- Datos -->
+            <mat-card-content>
+                <ul>
+                    <li>Categoría: {{place.categoria}}</li>
+                    <li>Descripción: {{place.descripcion}}</li>
+                    <li>Precio: {{place.gastoAproximado}}$</li>
+                </ul>
+            </mat-card-content>
+        </div>
+    </mat-card>
+    <!-- botones -->
+
+
+    <!-- <mat-card *ngFor="let place of places" class="place example-card">
+        <img class="img-card" mat-card-image src={{place.imagenUrl}} alt="place-img">
             <mat-card-title>{{place.nombre}}</mat-card-title>
             <mat-card-subtitle>{{place.pais}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src={{place.imagenUrl}} alt="place-img">
         <mat-card-content>
             <p>
                 {{place.descripcion}}
@@ -20,5 +39,5 @@
         <mat-card-actions>
             <button mat-button>VER MAS</button>
         </mat-card-actions>
-    </mat-card>
+    </mat-card> -->
 </div>

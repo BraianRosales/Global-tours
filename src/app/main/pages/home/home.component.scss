@@ -5,7 +5,7 @@
     justify-content: start;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 35px;
+    gap: 57px;
     min-height: 100vh;
 
     .searchAndTitle {
@@ -29,9 +29,9 @@
                 width: 85%;
                 border-radius: 20px;
                 padding: 12px;
-                border: 1px solid gainsboro;
+                border: 1px solid white;
             }
-    
+
             input:focus-visible {
                 outline: none;
             }
@@ -41,12 +41,102 @@
                 right: 35px;
                 top: 7px;
                 font-size: 28px;
-                color: #d16239;
+                color: #d37b5e;
             }
         }
     }
 
     .place {
-        width: 20%;
+        width: 18%;
+        border-radius: 8px;
+
+        // .img-card {
+        //     height: 200px;
+        //     margin-bottom: 30px;
+        // }
     }
+}
+
+// ACA
+
+
+mat-card {
+    position: relative;
+    width: 22%;
+    height: 435px;
+    cursor: col-resize;
+    margin-bottom: 100px;
+    mat-card-title {
+        line-height: 15px;
+        font-size: 14px;
+    }
+}
+
+.spacing {
+    margin-top: 100px;
+}
+
+img {
+    width: 123%;
+    height: 104%;
+}
+
+/* Card giratoria */
+
+mat-card  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: 1.5s;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 2px rgb(118, 118, 118);
+}
+
+mat-card  .front {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+mat-card  .front .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+mat-card  .back {
+    color: black;
+    transform: perspective(600px) rotateY(180deg);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 18px;
+    background-color: #e5e5e5;
+    height: 400px;
+    box-shadow: 0px 0px 5px 2px rgb(118, 118, 118);
+}
+
+mat-card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+mat-card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+}
+
+mat-card {
+    padding: 0px !important;
+    background-color: #EEEEEE;
+    box-shadow: 0px;
+}
+
+mat-card:not([class*="mat-elevation-z"]) {
+    box-shadow: none !important;
+}
+
+li {
+    font-size: 18px;
+    margin-bottom: 15px;
 }
