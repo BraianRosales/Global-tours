@@ -1,6 +1,6 @@
 .header {
     background: #d16239;
-    height: 170px;
+    height: 180px;
     color: white;
     display: flex;
     flex-direction: row;
@@ -31,33 +31,9 @@
             margin-right: 5px;
         }
 
-        // .text {
-        //     background-image: 
-        //         linear-gradient(
-        //             transparent 0%,
-        //             transparent 87%,
-        //             black 90%,
-        //             black 100%
-                    
-        //         );
-
-        //         padding-bottom: 1px;
-        //         background-repeat: no-repeat;
-        //         background-size: 0% 100%;
-        //         background-position-x: right;
-
-        //         transition: background-size 300ms;
-        // }
-
-        // .text:hover {
-        //     cursor: pointer;
-        //     background-size: 100% 100%;
-        //     background-position-x: left;
-        // }
-
         .text:hover {
             cursor: pointer;
-            color: gold;
+            color: springgreen;
             font-weight: 400;
         }
     }

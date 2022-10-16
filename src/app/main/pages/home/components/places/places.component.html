@@ -1,0 +1,19 @@
+<mat-card *ngFor="let place of (placesFiltered.length > 0 ? placesFiltered : allPlaces)">
+    <!-- FRONT -->
+    <mat-card-title>{{place.nombre}}</mat-card-title>
+    <mat-card-subtitle>{{place.pais}}</mat-card-subtitle>
+    <div class="face front">
+        <img mat-card-image src={{place.imagenUrl}} alt="Photo of place" />
+    </div>
+    <!-- BACK -->
+    <div class="face back">
+        <!-- Datos -->
+        <mat-card-content>
+            <ul>
+                <li>Categoría: {{place.categoria}}</li>
+                <li>Descripción: {{place.descripcion}}</li>
+                <li>Precio: {{place.gastoAproximado}}$</li>
+            </ul>
+        </mat-card-content>
+    </div>
+</mat-card>
