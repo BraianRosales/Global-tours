@@ -1,20 +1,30 @@
-<mat-card *ngFor="let place of (placesFiltered.length > 0 ? placesFiltered : allPlaces)">
-    <!-- FRONT -->
-    <mat-card-title>{{place.nombre}}</mat-card-title>
-    <mat-card-subtitle>{{place.pais}}</mat-card-subtitle>
-    <div class="face front">
-        <img mat-card-image src={{place.imagenUrl}} alt="Paisaje" />
+<div class="places-list" *ngIf="placesFiltered.length > 0 ;else showEmpty">
+    <mat-card *ngFor="let place of placesFiltered">
+        <mat-card-title>{{place.nombre}}</mat-card-title>
+        <mat-card-subtitle>{{place.pais}}</mat-card-subtitle>
+        <div class="face front">
+            <img mat-card-image src={{place.imagenUrl}} alt="Paisaje" />
+        </div>
+        <div class="face back">
+            <mat-card-content>
+                <div id="title-card">Características:</div>
+                <ul>
+                    <li>Categoría: {{place.categoria}}</li>
+                    <li>Descripción: {{place.descripcion}}</li>
+                    <li>PRECIO: {{place.gastoAproximado | currency}}</li>
+                </ul>
+            </mat-card-content>
+        </div>
+    </mat-card>
+</div>
+<ng-template #showEmpty>
+    <div id="empty-container">
+        <span class="search material-icons">
+            zoom_in
+        </span>
+        <h1>Uups...</h1>
+        <div>No se encontraron resultados</div>
     </div>
-    <!-- BACK -->
-    <div class="face back">
-        <!-- Datos -->
-        <mat-card-content>
-            <div id="title-back">Característica: </div>
-            <ul>
-                <li>Categoría: {{place.categoria}}</li>
-                <li>Descripción: {{place.descripcion}}</li>
-                <li>PRECIO: {{place.gastoAproximado | currency}}</li>
-            </ul>
-        </mat-card-content>
-    </div>
-</mat-card>
+</ng-template>
+
+
