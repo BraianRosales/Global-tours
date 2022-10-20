@@ -35,19 +35,20 @@
                 right: 50px;
                 top: 7px;
                 font-size: 28px;
-                color: gainsboro;
+                color: #ff8d63;
                 background: white;
             }
 
             .restart-icon {
+                font-size: 28px;
                 position: absolute;
-                top: 7px;
-                right: 15px;
+                top: 5px;
+                right: 10px;
             }
 
             .restart-icon:hover {
                 cursor: pointer;
-                color: orangered;
+                color: #ff8d63;
             }
         }
     }
