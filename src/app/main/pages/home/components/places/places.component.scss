@@ -70,6 +70,13 @@ mat-card:not([class*="mat-elevation-z"]) {
 }
 
 li {
+    margin-bottom: 0.5rem;
+}
+
+li:nth-child(3){
+    color: orangered;
+}
+
+#title-back { 
     font-size: 18px;
-    margin-bottom: 15px;
 }

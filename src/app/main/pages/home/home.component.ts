@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   /**Este metodo se ejecuta para poder guardar dentro de la propiedad placesFiltered todos los lugares que sean filtrados por el input value del usuario.*/
-  searchPlacesBySentence(userSentence: string): void{
+  searchPlacesBySentence(userSentence: string): void {
     const placesFilterBySentence: Place[] = this.places.filter((place: Place) => this.filterBySentence(place,userSentence))
     this.placesFiltered = placesFilterBySentence;
   }

@@ -9,10 +9,11 @@
     <div class="face back">
         <!-- Datos -->
         <mat-card-content>
+            <div id="title-back">Característica: </div>
             <ul>
                 <li>Categoría: {{place.categoria}}</li>
                 <li>Descripción: {{place.descripcion}}</li>
-                <li>Precio: {{place.gastoAproximado}}$</li>
+                <li>PRECIO: {{place.gastoAproximado | currency}}</li>
             </ul>
         </mat-card-content>
     </div>
