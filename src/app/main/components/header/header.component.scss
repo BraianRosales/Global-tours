@@ -1,8 +1,8 @@
-$color-orange: #f76833;
+$color-orange: #ff8d63;
 
 .header {
     background: #395c5c;
-    height: 180px;
+    height: 200px;
     color: white;
     display: flex;
     flex-direction: row;
@@ -120,6 +120,6 @@ mat-icon {
 }
 
 ::ng-deep .my-custom-badge-accent.mat-badge-accent .mat-badge-content {
-    background-color: $color-orange;
+    background-color: #ff662d;
     color: white;
 }
