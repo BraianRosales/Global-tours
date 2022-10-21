@@ -61,6 +61,7 @@
         padding: 18px;
         background-color: white;
         height: 400px;
+        overflow: auto;
     }
     mat-card:hover .front {
         transform: perspective(600px) rotateY(180deg);
@@ -77,7 +78,28 @@
     }
     
     li:nth-child(3){
-        color: red;
+        color: orangered;
+    }
+
+    li:nth-child(4){
+        color: orangered;
+    }
+
+    ::ng-deep.mat-checkbox-indeterminate ::ng-deep.mat-accent ::ng-deep.mat-checkbox-background, ::ng-deep.mat-checkbox-checked.mat-accent ::ng-deep.mat-checkbox-background {
+        background-color: orangered !important;
+    }
+    ::ng-deep.mat-checkbox-frame {
+        border-width: 1px !important;
+    }
+
+    li:nth-child(5){
+        color: orangered;
+        cursor: pointer;
+    }
+
+    li:nth-child(5):hover{
+        color: rgb(255, 0, 0);
+        text-decoration: underline;
     }
 }
 

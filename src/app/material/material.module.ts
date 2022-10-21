@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 const material = [
@@ -14,7 +16,10 @@ const material = [
   MatButtonModule,
   MatIconModule,
   MatProgressSpinnerModule,
-  MatCardModule
+  MatCardModule,
+  MatCheckboxModule,
+  MatBadgeModule,
+  
 ]
 
 @NgModule({
