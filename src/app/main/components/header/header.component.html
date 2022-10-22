@@ -1,7 +1,7 @@
 <div class="header">
     <div class="container-left">
         <div class="title">
-            Global Tours
+            <a [routerLink]="['/main/inicio']">Global Tours</a>
         </div>
         <div class="nav">
             <span class="material-icons">contact_support</span> <span class="text">¿Quienes somos?</span>  
@@ -17,7 +17,7 @@
         <div class="bottom">
             <div class="container-bottom">
                 <div [ngStyle]="{fontSize: '17px'}">Tus pasajes</div>
-                <mat-icon  matBadge="3" matBadgeColor="accent" class="planeIcon my-custom-badge-accent">airplanemode_active</mat-icon>
+                <mat-icon [matBadgeHidden]="placesInCheckout == 0" [matBadge]="placesInCheckout" matBadgeColor="accent" class="planeIcon my-custom-badge-accent">airplanemode_active</mat-icon>
             </div>
         </div>
     </div>

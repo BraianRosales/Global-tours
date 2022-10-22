@@ -1,7 +1,7 @@
-$color-orange: #ff8d63;
+$color-orange: #ff6859;
 
 .header {
-    background: #395c5c;
+    background: #009784;
     height: 200px;
     color: white;
     display: flex;
@@ -19,6 +19,13 @@ $color-orange: #ff8d63;
         height: 100%;
         width: 39%;
         font-size: 40px;
+        text-shadow: 2px 2px 4px rgb(0 0 0 / 80%);
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            color: floralwhite
+        }
     }
 
     .nav {
@@ -35,9 +42,9 @@ $color-orange: #ff8d63;
 
         .text:hover {
             cursor: pointer;
-            color: $color-orange;
+            color: #ff988e;
             font-weight: 400;
-            text-shadow: 0px 0px 5px #8787
+            text-shadow: 2px 2px 4px rgb(0 0 0 / 80%);
         }
     }
 }
@@ -109,6 +116,7 @@ $color-orange: #ff8d63;
                 margin-left: 5px;
                 margin-bottom: 5px;
                 margin-top: 7px;
+                text-shadow: 2px 2px 4px rgb(0 0 0 / 80%);
             }
         }
     }
@@ -120,6 +128,7 @@ mat-icon {
 }
 
 ::ng-deep .my-custom-badge-accent.mat-badge-accent .mat-badge-content {
-    background-color: #ff662d;
+    background-color: $color-orange;
     color: white;
+    text-shadow: 2px 2px 4px rgb(0 0 0 / 80%);
 }

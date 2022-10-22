@@ -11,11 +11,18 @@
                 <ul>
                     <li>Categoría: {{place.categoria}}</li>
                     <li>Descripción: {{place.descripcion}}</li>
-                    <li>PRECIO: {{place.gastoAproximado | currency}}</li>
-                    <li>Agregar a tus pasajes <mat-checkbox></mat-checkbox></li>
+                    <li>Precio: {{place.gastoAproximado | currency}}</li>
                     <li>ver mas...</li>
+                    <li>Agregar a tus pasajes 
+                        <span *ngIf="includeInCheckout(place);else checkedFalse">
+                            <mat-checkbox checked="true" (click)="!includeInCheckout(place) ? addPlace(place): removePlace(place)"></mat-checkbox>
+                        </span>
+                        <ng-template #checkedFalse>
+                            <mat-checkbox checked="false" (click)="!includeInCheckout(place) ? addPlace(place): removePlace(place)"></mat-checkbox>
+                        </ng-template>
+                    </li>
                 </ul>
-                
+
             </mat-card-content>
         </div>
     </mat-card>
@@ -29,5 +36,3 @@
         <div>No se encontraron resultados</div>
     </div>
 </ng-template>
-
-

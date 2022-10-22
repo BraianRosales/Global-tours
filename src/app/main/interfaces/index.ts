@@ -1,4 +1,3 @@
-
 export interface Place {
     id: number;
     nombre: string;
@@ -9,3 +8,4 @@ export interface Place {
     categoria: string;
     valoracion: number;
 }
+

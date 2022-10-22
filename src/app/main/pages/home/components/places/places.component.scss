@@ -15,7 +15,7 @@
         cursor: col-resize;
         margin-bottom: 100px;
         padding: 0px !important;
-        background-color: #EEEEEE;
+        background-color: #f7f7f7;
         box-shadow: 0px;
     
         mat-card-title {
@@ -82,7 +82,17 @@
     }
 
     li:nth-child(4){
-        color: orangered;
+        color: black;
+        cursor: pointer;
+    }
+
+    li:nth-child(4):hover{
+        color: rgb(255, 0, 0);
+        text-decoration: underline;
+    }
+
+    li:nth-child(5){
+        color: black;
     }
 
     ::ng-deep.mat-checkbox-indeterminate ::ng-deep.mat-accent ::ng-deep.mat-checkbox-background, ::ng-deep.mat-checkbox-checked.mat-accent ::ng-deep.mat-checkbox-background {
@@ -90,16 +100,6 @@
     }
     ::ng-deep.mat-checkbox-frame {
         border-width: 1px !important;
-    }
-
-    li:nth-child(5){
-        color: orangered;
-        cursor: pointer;
-    }
-
-    li:nth-child(5):hover{
-        color: rgb(255, 0, 0);
-        text-decoration: underline;
     }
 }
 
@@ -114,7 +114,8 @@
 
 .search {
     font-size: 125px;
-    color: #395c5c;
+    color: #048776;
+    text-shadow: 2px 2px 4px rgb(0 0 0 / 80%);
 }
 
 #title-card {

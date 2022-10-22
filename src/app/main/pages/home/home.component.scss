@@ -14,7 +14,7 @@ $color-primary: #ff8d63;
         h1 {
             margin-top: 25px;
             font-size: 32px;
-            color: #395c5c;
+            color: #009784;
         }
 
         .input-container {
@@ -38,7 +38,7 @@ $color-primary: #ff8d63;
                 right: 50px;
                 top: 7px;
                 font-size: 28px;
-                color: $color-primary;
+                color: gainsboro;
                 background: white;
             }
 
@@ -51,7 +51,7 @@ $color-primary: #ff8d63;
 
             .restart-icon:hover {
                 cursor: pointer;
-                color: $color-primary;
+                color: #ff6859;
             }
         }
     }
@@ -62,7 +62,7 @@ input:focus::placeholder {
 }
 
 hr { 
-    border: 1px solid #d8dfdf;
+    border: 1px solid #eaf1f1;
 }
 
 .spinner {
@@ -76,5 +76,5 @@ hr {
 
 ::ng-deep .mat-progress-spinner circle,
 .mat-spinner circle {
-    stroke: #d95b2c;
+    stroke: #048776;
 }
