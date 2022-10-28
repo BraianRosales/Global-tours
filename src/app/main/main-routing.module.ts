@@ -23,10 +23,6 @@ const routes: Routes = [
         loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule)
       },
       {
-        path: 'lugar:id',
-        loadChildren: () => import('./pages/place-detail/place-detail.module').then(m => m.PlaceDetailModule)
-      },
-      {
         path: '**',
         redirectTo: 'inicio',
         pathMatch: 'full'

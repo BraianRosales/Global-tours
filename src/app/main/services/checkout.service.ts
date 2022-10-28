@@ -9,7 +9,7 @@ export class CheckoutService {
 
   /**Lista inicial donde guardo una lista de Place. */
   myList: Place[] = [];
-  /**Inicializo una variable con referenciamyTravelList donde instansio un BehaviorSubject. */
+  /**Inicializo una variable con referencia myTravelList donde instansio un BehaviorSubject. */
   myTravelList = new BehaviorSubject<Place[]>([]);
   /**Declaro una variable myTravelList$ donde  guardo myTravelList que sos lo declaro como asObservable (Solo sirve para ser escuchado)*/
   myTravelList$ = this.myTravelList.asObservable();

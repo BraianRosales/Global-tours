@@ -1,7 +1,7 @@
-$color-orange: #ff6859;
+$color-orange: #f36e61;
 
 .header {
-    background: #009784;
+    background: #1d9989;
     height: 200px;
     color: white;
     display: flex;
@@ -42,7 +42,7 @@ $color-orange: #ff6859;
 
         .text:hover {
             cursor: pointer;
-            color: #ff988e;
+            color: $color-orange;
             font-weight: 400;
             text-shadow: 2px 2px 4px rgb(0 0 0 / 80%);
         }

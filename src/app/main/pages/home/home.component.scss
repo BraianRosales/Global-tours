@@ -51,18 +51,18 @@ $color-primary: #ff8d63;
 
             .restart-icon:hover {
                 cursor: pointer;
-                color: #ff6859;
+                color: #1D9989;
             }
         }
     }
 }
 
 input:focus::placeholder {
-    color: $color-primary;
+    color: #56c6b7;
 }
 
 hr { 
-    border: 1px solid #eaf1f1;
+    border: 1px solid #ffffff;
 }
 
 .spinner {

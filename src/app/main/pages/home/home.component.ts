@@ -3,8 +3,9 @@ import { MainService } from '../../services/main.service';
 import { Place } from '../../interfaces/index';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { SpinnerService } from 'src/app/shared/components/spinner/spinner.service';
 
 @Component({
   selector: 'app-home',
@@ -18,46 +19,18 @@ export class HomeComponent implements OnInit {
   placesFiltered : Place[] = [];
   /**Form control que retorna un null o un string */
   inputValue = new FormControl<string | null>('');
-  /**Flag que determina si se muestra o no el spinner */
-  showSpinner: boolean = true;
+  /**Flag que determina si se muestra el spinner */
+  isLoading$: BehaviorSubject<boolean> = this.spinnerService.isLoading$
 
-  constructor(private mainService: MainService, private router: Router) { 
-    this.inputValue.valueChanges.pipe(
-      map(userSentence => userSentence?.toLocaleLowerCase().trim()), //mapea la oración del usuario sin espacios por delante ni por detras y transforma toda la oración a minúscula.
-      debounceTime(800), //agrega un delay de 800ms.
-      distinctUntilChanged(), //identifoca que ultima palabra es distinta a la siguiente para no cortar el flujo.
-      filter(userSentence => userSentence !== '' && userSentence?.length! > 2), //filtra las palabras que no esten vacías y que contengan una palabra mayor a 2.
-      tap(userSentence =>  this.searchPlacesBySentence(userSentence!)) //por ultimo filtra todos los lugares segun las palabras que ingrese el usuario.
-    ).subscribe()
+  constructor(private mainService: MainService, private router: Router, private spinnerService: SpinnerService) { 
+      this.onSearch()
   }
 
   ngOnInit(): void {
     this.mainService.getPlaces().subscribe((listPlaces: Place[]) => {
       this.places = listPlaces;
       this.placesFiltered = this.places;
-      this.showSpinner = false;
     })
-  }
-
-  /**Este metodo se ejecuta para poder guardar dentro de la propiedad placesFiltered todos los lugares que sean filtrados por el input value del usuario*/
-  searchPlacesBySentence(userSentence: string): void {
-    const placesFilterBySentence: Place[] = this.places.filter((place: Place) => this.filterBySentence(place,userSentence))
-    this.placesFiltered = placesFilterBySentence;
-  }
-
-  /**Retorna true si la oración del usuario ingresada por el input coincide con alguna palabra de los nombres de los lugares */
-  filterBySentence(place: Place, userSentence: string): boolean {
-    const listUserSentence: string[] = place.nombre.toLowerCase().split(' ');
-    console.log('input del usuario:',userSentence);
-    const userInput: string[] = userSentence.split(' ');
-    let include: boolean = false;
-    listUserSentence.forEach((word: string) => {
-      if (word.startsWith(`${userSentence}`) || userInput.includes(word)) {
-        include = true;
-        return;
-      }
-    });
-    return include;
   }
 
   /**Cierra la sesión del usuario, limpiando el sessionStorage y retornando a la ruta /auth 
@@ -73,46 +46,15 @@ export class HomeComponent implements OnInit {
     this.inputValue.reset('')
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // search(): void {
-  //   // const placesInputValue: Place[] = this.places.filter((place: Place) => place.nombre === this.inputValue.value)
-  //   // this.placesFiltered = placesInputValue;
-  //   // console.log('lugares filtrados',this.placesFiltered)
-  //   const placesInputValue: Place[] = this.places.filter((place: Place) => {
-      
-  //   })
-  // }
-
-  // /**Retorna true si el valor del input tipeado por el usuario existe como palabra en la frase. */
-  // searchPlace(sentence: string): boolean {
-  //   const listOfWords: string[] = placeInput.split('');  //Separa la frase en una lista de palabras.
-  //   const wordExists: boolean =  this.searchWord(listOfWords); //Retorna true si la palabra existe en listOfWords.
-  //   return wordExists;
-  //   // listOfWords.startsWith('Satur');
-  // }
-
-  // // searchWord(listOfWords: string[]): boolean {
-  // //     listOfWords.forEach(element => {
-  // //       if (element.startsWith(this.inputValue.value!)) {
-  // //         return true
-  // //       }
-  // //     });
-  // //     return false;
-  // // }
-
+  /**Metodo donde se ejecuta el inputValue (cuando tipea el usuario) */
+  onSearch(): void{
+    this.inputValue.valueChanges.pipe(
+      map(userSentence => userSentence?.toLocaleLowerCase().trim()), //mapea la oración del usuario sin espacios por delante ni por detras y transforma toda la oración a minúscula.
+      debounceTime(800), //agrega un delay de 800ms.
+      distinctUntilChanged(), //identifoca que ultima palabra es distinta a la siguiente para no cortar el flujo.
+      filter(userSentence => userSentence !== '' && userSentence?.length! > 2), //filtra las palabras que no esten vacías y que contengan una palabra mayor a 2.
+      tap(userSentence =>  this.mainService.getPlaceByName(userSentence!) //Hace la petición al servidor y guarda en placesFiltered el resultado del endpoint
+        .subscribe((resPlaces: Place[]) => this.placesFiltered = resPlaces))
+      ).subscribe()
+  }
 }

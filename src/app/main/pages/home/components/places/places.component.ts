@@ -12,7 +12,6 @@ export class PlacesComponent implements OnInit {
   @Input() placesFiltered : Place[] = [];
   /**esta propiedad retorna la lista total de lugares dentro del Checkout */
   placesInCheckout: Place[] = [];
- 
   /**fue checkeado */
   isChecked: boolean = false;
 

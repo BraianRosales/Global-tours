@@ -12,7 +12,6 @@
                     <li>Categoría: {{place.categoria}}</li>
                     <li>Descripción: {{place.descripcion}}</li>
                     <li>Precio: {{place.gastoAproximado | currency}}</li>
-                    <li>ver mas...</li>
                     <li>Agregar a tus pasajes 
                         <span *ngIf="includeInCheckout(place);else checkedFalse">
                             <mat-checkbox checked="true" (click)="!includeInCheckout(place) ? addPlace(place): removePlace(place)"></mat-checkbox>
@@ -21,8 +20,8 @@
                             <mat-checkbox checked="false" (click)="!includeInCheckout(place) ? addPlace(place): removePlace(place)"></mat-checkbox>
                         </ng-template>
                     </li>
+                    <li><button [routerLink]="['lugar', place.id]" mat-raised-button color="warn">ver mas...</button></li>
                 </ul>
-
             </mat-card-content>
         </div>
     </mat-card>

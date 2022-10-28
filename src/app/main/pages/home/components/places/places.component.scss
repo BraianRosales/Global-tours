@@ -4,9 +4,10 @@
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 57px;
+    gap: 35px;
     min-height: 80vh;
     margin-top: 5rem;
+    
 
     mat-card {
         position: relative;
@@ -15,7 +16,7 @@
         cursor: col-resize;
         margin-bottom: 100px;
         padding: 0px !important;
-        background-color: #f7f7f7;
+        background-color: ghostwhite;
         box-shadow: 0px;
     
         mat-card-title {
@@ -40,7 +41,8 @@
         overflow: hidden;
         transition: 1.5s;
         border-radius: 8px;
-        box-shadow: 0px 0px 3px 1px #d8dfdf;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        
     }
     mat-card .front {
         transform: perspective(600px) rotateY(0deg);
@@ -86,15 +88,6 @@
         cursor: pointer;
     }
 
-    li:nth-child(4):hover{
-        color: rgb(255, 0, 0);
-        text-decoration: underline;
-    }
-
-    li:nth-child(5){
-        color: black;
-    }
-
     ::ng-deep.mat-checkbox-indeterminate ::ng-deep.mat-accent ::ng-deep.mat-checkbox-background, ::ng-deep.mat-checkbox-checked.mat-accent ::ng-deep.mat-checkbox-background {
         background-color: orangered !important;
     }
@@ -108,7 +101,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 59vh;
+    min-height: 45vh;
     width: 100%;
 }
 

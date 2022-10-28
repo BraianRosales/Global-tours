@@ -1,6 +1,6 @@
 <div class="home-container">
     <div class="searchAndTitle">
-        <h1>Agrega un lugar!</h1>
+        <h1>Lugares del mundo</h1>
         <div class="input-container">
             <input type="text" [formControl]="inputValue" placeholder="Buscar lugar...">
             <span class="search-icon material-icons">search</span>
@@ -8,10 +8,6 @@
         </div>
     </div>
     <hr>
-    <div class="spinner" *ngIf="showSpinner; else showPlaces">
-        <mat-spinner></mat-spinner>
-    </div>
-    <ng-template #showPlaces>
-        <app-places [placesFiltered]="placesFiltered"></app-places>
-    </ng-template>
+    <!-- Condicionar el loading del lugares o error -->
+    <app-places [placesFiltered]="placesFiltered"></app-places>
 </div>
